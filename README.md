@@ -18,7 +18,7 @@ How to use:
    ffprobe -version
    ```
 
-6. create the main txt file:
+6. create the main txt file on the same folder:
 
    ```
    main.txt
