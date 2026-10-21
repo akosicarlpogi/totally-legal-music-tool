@@ -10,22 +10,25 @@ This project is intended for educational and personal use. Users are responsible
 4. py -m pip install -r requirements.txt
 5. winget install Gyan.FFmpeg
    verify installation:
+
    ```
    ffmpeg -version
    ffprobe -version
    ```
-6. create the main txt file on the same folder:
+7. create the main txt file on the same folder:
+
    ```
    main.txt
    ```
-7. copy and paste one or multiple YT links on "main.txt", for example:
+8. copy and paste one or multiple YT links on "main.txt", for example:
+
    ```
    https://ytdotcom//link1
    https://ytdotcom//link2
    https://ytdotcom//link3
    ```
-8. save, then open vscode terminal
-9. run "py download.py"
+9. save, then open vscode terminal
+10. run "py download.py"
 
 ## NOTES:
 
