@@ -1,3 +1,6 @@
+## DISCLAIMER
+
+This project is intended for educational and personal use. Users are responsible for ensuring they have the necessary rights or permissions to download content. The developer does not encourage copyright infringement or violations of applicable platform terms.
 
 How to use:
 
