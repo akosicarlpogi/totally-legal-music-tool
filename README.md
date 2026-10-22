@@ -9,9 +9,9 @@ This project is intended for educational and personal use. Users are responsible
 3. cd totally-legal-music-tool
 4. py -m pip install -r requirements.txt
 5. winget install Gyan.FFmpeg
-   verify installation:
 
    ```
+   verify installation:
    ffmpeg -version
    ffprobe -version
    ```
