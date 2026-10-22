@@ -1,37 +1,75 @@
-## DISCLAIMER
+# YouTube to MP3 Downloader
 
-This project is intended for educational and personal use. Users are responsible for ensuring they have the necessary rights or permissions to download content. The developer does not encourage copyright infringement or violations of applicable platform terms.
+A lightweight, automated Python script to batch-download YouTube audio streams into MP3 format with built-in duplicate detection and duration validation.
 
-## How to use:
+---
 
-1. open vscode terminal
-2. git clone https://github.com/akosicarlpogi/totally-legal-music-tool.git
-3. cd totally-legal-music-tool
-4. py -m pip install -r requirements.txt
-5. winget install Gyan.FFmpeg
-   verify installation:
+## Tech Stack
 
-   ```
-   ffmpeg -version
-   ffprobe -version
-   ```
-7. create the main txt file on the same folder:
+- **Language:** Python 3.8+
+- **Stream Extractor:** yt-dlp
+- **Audio Processor:** FFmpeg / ffprobe
+- **Core Standard Libraries:** pathlib, subprocess, urllib.parse, tempfile
 
-   ```
-   main.txt
-   ```
-8. copy and paste one or multiple YT links on "main.txt", for example:
+---
 
-   ```
-   https://ytdotcom//link1
-   https://ytdotcom//link2
-   https://ytdotcom//link3
-   ```
-9. save, then open vscode terminal
-10. run "py download.py"
+## Project Structure
 
-## NOTES:
+```text
+totally-legal-music-tool/
+├── download.py             # Main execution and processing script
+├── requirements.txt        # Python package dependencies
+├── main.txt                # Input queue (paste YouTube links here)
+├── historySuccess.txt      # Log of completed downloads (prevents re-downloading)
+├── historyFailed.txt       # Log of failed URLs for retry
+└── README.md               # Project documentation
+```
 
-1. on line 17, it is currently set at "SONGS_DIR = Path("D:/Songs")", if you want to download mp3s to a different directory, just change this line, 
-2. do not put the whole folder on somewhere that onedrive touches, it might cause errors and problems, just put the folder on drive C, 
-3. history of success and failed downloads are recorded on two(2) txt files that are automatically created once the python script has been run
+---
+
+## Quick Start
+
+```cmd
+# 1. Clone repository and navigate inside
+git clone https://github.com/akosicarlpogi/totally-legal-music-tool.git
+cd totally-legal-music-tool
+
+# 2. Install FFmpeg and Python dependencies
+winget install Gyan.FFmpeg
+py -m pip install -r requirements.txt
+
+# 3. Add URLs into main.txt, then run
+py download.py
+```
+
+> **Note:** Restart your terminal or editor after installing FFmpeg so Windows recognizes the updated PATH variable.
+
+---
+
+## How It Works
+
+1. Add YouTube URLs into `main.txt` (one link per line).
+2. Execute `py download.py`.
+3. The script verifies files, ignores duplicates, and exports `.mp3` tracks to `D:/Songs`.
+4. `main.txt` clears automatically once the batch completes safely.
+
+---
+
+<details>
+<summary><b>Configuration and Important Notes</b></summary>
+
+- **Change Output Path:** Modify line 17 of `download.py`:
+  ```python
+  SONGS_DIR = Path("D:/Songs")
+  ```
+- **File Locks:** Keep the project and target folder outside OneDrive or Google Drive synced directories to avoid file-locking errors.
+- **Deduplication:** Tracks are compared against existing filenames and audio duration to prevent redundant downloads.
+
+</details>
+
+<details>
+<summary><b>Disclaimer</b></summary>
+
+This tool is created for educational and personal workflow evaluation. Ensure you have the rights or permission from content owners before downloading media.
+
+</details>
